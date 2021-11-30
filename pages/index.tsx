@@ -5,7 +5,6 @@ import styles from '../styles/Home.module.css'
 import { useWindowDimensions } from '../hooks/useWindowDimensions';
 import { useEffect, useState } from 'react';
 
-
 const Home: NextPage = () => {
 
   const { width } = useWindowDimensions();

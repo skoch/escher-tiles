@@ -1,19 +1,20 @@
-import type { NextPage } from 'next'
 import Head from 'next/head'
+import type { NextPage } from 'next'
+import { useEffect, useState } from 'react';
+
 import styles from '../styles/Home.module.css'
 import { useWindowDimensions } from '../hooks/useWindowDimensions';
-import { useEffect, useState } from 'react';
-import { EscherTile, variants } from '../components/tiles/EscherTile';
+import { EscherTile } from '../components/tiles/EscherTile';
+import { TileVariant } from '../interfaces';
 
-
-const Home: NextPage = () => {
+const Escher: NextPage = () => {
   const { width } = useWindowDimensions();
   const [tileSize, setTileSize] = useState<number>(100);
   const [fill1] = useState<string>('#232425');
   const [fill2] = useState<string>('#b1ad38');
 
   useEffect(() => {
-    setTileSize(width && width <= 599 ? 50 : 100);
+    setTileSize(width && width <= 599 ? 35 : 100);
   }, [width]);
 
   const size = String(tileSize);
@@ -29,128 +30,42 @@ const Home: NextPage = () => {
       <main className={styles.main}>
         <div className={styles.grid}>
           <EscherTile
-            variant={variants.B1}
+            variant={TileVariant.B1}
             rotation="0"
             size={size}
             fill1={fill1}
             fill2={fill2}
           />
           <EscherTile
-            variant={variants.B2}
+            variant={TileVariant.B2}
             rotation="90"
             size={size}
             fill1={fill1}
             fill2={fill2}
           />
           <EscherTile
-            variant={variants.B2}
+            variant={TileVariant.B2}
             rotation="0"
             size={size}
             fill1={fill1}
             fill2={fill2}
           />
           <EscherTile
-            variant={variants.B1}
+            variant={TileVariant.B1}
             rotation="90"
             size={size}
             fill1={fill1}
             fill2={fill2}
           />
           <EscherTile
-            variant={variants.B1}
+            variant={TileVariant.B1}
             rotation="0"
             size={size}
             fill1={fill1}
             fill2={fill2}
           />
           <EscherTile
-            variant={variants.B2}
-            rotation="90"
-            size={size}
-            fill1={fill1}
-            fill2={fill2}
-          />
-
-          <EscherTile
-            variant={variants.B2}
-            rotation="270"
-            size={size}
-            fill1={fill1}
-            fill2={fill2}
-          />
-          <EscherTile
-            variant={variants.A1}
-            rotation="180"
-            size={size}
-            fill1={fill1}
-            fill2={fill2}
-          />
-          <EscherTile
-            variant={variants.A1}
-            rotation="270"
-            size={size}
-            fill1={fill1}
-            fill2={fill2}
-          />
-          <EscherTile
-            variant={variants.A2}
-            rotation="180"
-            size={size}
-            fill1={fill1}
-            fill2={fill2}
-          />
-          <EscherTile
-            variant={variants.A2}
-            rotation="270"
-            size={size}
-            fill1={fill1}
-            fill2={fill2}
-          />
-          <EscherTile
-            variant={variants.B1}
-            rotation="180"
-            size={size}
-            fill1={fill1}
-            fill2={fill2}
-          />
-
-          <EscherTile
-            variant={variants.B2}
-            rotation="0"
-            size={size}
-            fill1={fill1}
-            fill2={fill2}
-          />
-          <EscherTile
-            variant={variants.A1}
-            rotation="90"
-            size={size}
-            fill1={fill1}
-            fill2={fill2}
-          />
-          <EscherTile
-            variant={variants.A1}
-            rotation="0"
-            size={size}
-            fill1={fill1}
-            fill2={fill2}
-          />
-          <EscherTile
-            variant={variants.A2}
-            rotation="90"
-            size={size}
-            fill1={fill1}
-            fill2={fill2}
-          />
-          <EscherTile
-            variant={variants.A2}
-            rotation="0"
-            size={size}
-            fill1={fill1}
-            fill2={fill2}
-          />
-          <EscherTile
-            variant={variants.B1}
+            variant={TileVariant.B2}
             rotation="90"
             size={size}
             fill1={fill1}
@@ -158,42 +73,42 @@ const Home: NextPage = () => {
           />
 
           <EscherTile
-            variant={variants.B1}
+            variant={TileVariant.B2}
             rotation="270"
             size={size}
             fill1={fill1}
             fill2={fill2}
           />
           <EscherTile
-            variant={variants.A2}
+            variant={TileVariant.A1}
             rotation="180"
             size={size}
             fill1={fill1}
             fill2={fill2}
           />
           <EscherTile
-            variant={variants.A2}
+            variant={TileVariant.A1}
             rotation="270"
             size={size}
             fill1={fill1}
             fill2={fill2}
           />
           <EscherTile
-            variant={variants.A1}
+            variant={TileVariant.A2}
             rotation="180"
             size={size}
             fill1={fill1}
             fill2={fill2}
           />
           <EscherTile
-            variant={variants.A1}
+            variant={TileVariant.A2}
             rotation="270"
             size={size}
             fill1={fill1}
             fill2={fill2}
           />
           <EscherTile
-            variant={variants.B2}
+            variant={TileVariant.B1}
             rotation="180"
             size={size}
             fill1={fill1}
@@ -201,42 +116,42 @@ const Home: NextPage = () => {
           />
 
           <EscherTile
-            variant={variants.B1}
+            variant={TileVariant.B2}
             rotation="0"
             size={size}
             fill1={fill1}
             fill2={fill2}
           />
           <EscherTile
-            variant={variants.A2}
+            variant={TileVariant.A1}
             rotation="90"
             size={size}
             fill1={fill1}
             fill2={fill2}
           />
           <EscherTile
-            variant={variants.A2}
+            variant={TileVariant.A1}
             rotation="0"
             size={size}
             fill1={fill1}
             fill2={fill2}
           />
           <EscherTile
-            variant={variants.A1}
+            variant={TileVariant.A2}
             rotation="90"
             size={size}
             fill1={fill1}
             fill2={fill2}
           />
           <EscherTile
-            variant={variants.A1}
+            variant={TileVariant.A2}
             rotation="0"
             size={size}
             fill1={fill1}
             fill2={fill2}
           />
           <EscherTile
-            variant={variants.B2}
+            variant={TileVariant.B1}
             rotation="90"
             size={size}
             fill1={fill1}
@@ -244,42 +159,128 @@ const Home: NextPage = () => {
           />
 
           <EscherTile
-            variant={variants.B2}
+            variant={TileVariant.B1}
             rotation="270"
             size={size}
             fill1={fill1}
             fill2={fill2}
           />
           <EscherTile
-            variant={variants.B1}
+            variant={TileVariant.A2}
             rotation="180"
             size={size}
             fill1={fill1}
             fill2={fill2}
           />
           <EscherTile
-            variant={variants.B1}
+            variant={TileVariant.A2}
             rotation="270"
             size={size}
             fill1={fill1}
             fill2={fill2}
           />
           <EscherTile
-            variant={variants.B2}
+            variant={TileVariant.A1}
             rotation="180"
             size={size}
             fill1={fill1}
             fill2={fill2}
           />
           <EscherTile
-            variant={variants.B2}
+            variant={TileVariant.A1}
             rotation="270"
             size={size}
             fill1={fill1}
             fill2={fill2}
           />
           <EscherTile
-            variant={variants.B1}
+            variant={TileVariant.B2}
+            rotation="180"
+            size={size}
+            fill1={fill1}
+            fill2={fill2}
+          />
+
+          <EscherTile
+            variant={TileVariant.B1}
+            rotation="0"
+            size={size}
+            fill1={fill1}
+            fill2={fill2}
+          />
+          <EscherTile
+            variant={TileVariant.A2}
+            rotation="90"
+            size={size}
+            fill1={fill1}
+            fill2={fill2}
+          />
+          <EscherTile
+            variant={TileVariant.A2}
+            rotation="0"
+            size={size}
+            fill1={fill1}
+            fill2={fill2}
+          />
+          <EscherTile
+            variant={TileVariant.A1}
+            rotation="90"
+            size={size}
+            fill1={fill1}
+            fill2={fill2}
+          />
+          <EscherTile
+            variant={TileVariant.A1}
+            rotation="0"
+            size={size}
+            fill1={fill1}
+            fill2={fill2}
+          />
+          <EscherTile
+            variant={TileVariant.B2}
+            rotation="90"
+            size={size}
+            fill1={fill1}
+            fill2={fill2}
+          />
+
+          <EscherTile
+            variant={TileVariant.B2}
+            rotation="270"
+            size={size}
+            fill1={fill1}
+            fill2={fill2}
+          />
+          <EscherTile
+            variant={TileVariant.B1}
+            rotation="180"
+            size={size}
+            fill1={fill1}
+            fill2={fill2}
+          />
+          <EscherTile
+            variant={TileVariant.B1}
+            rotation="270"
+            size={size}
+            fill1={fill1}
+            fill2={fill2}
+          />
+          <EscherTile
+            variant={TileVariant.B2}
+            rotation="180"
+            size={size}
+            fill1={fill1}
+            fill2={fill2}
+          />
+          <EscherTile
+            variant={TileVariant.B2}
+            rotation="270"
+            size={size}
+            fill1={fill1}
+            fill2={fill2}
+          />
+          <EscherTile
+            variant={TileVariant.B1}
             rotation="180"
             size={size}
             fill1={fill1}
@@ -291,4 +292,4 @@ const Home: NextPage = () => {
   );
 }
 
-export default Home
+export default Escher;
