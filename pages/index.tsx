@@ -286,6 +286,6 @@ const Escher: NextPage = () => {
       </main>
     </div>
   );
-}
+};
 
 export default Escher;

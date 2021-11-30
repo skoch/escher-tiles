@@ -10,7 +10,7 @@ export enum TileVariant {
   A2 = 'A2',
   B1 = 'B1',
   B2 = 'B2',
-};
+}
 
 export interface EscherTileProps extends Tile {
   variant: TileVariant;

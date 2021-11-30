@@ -25,8 +25,8 @@ export const useWindowDimensions = (): WindowDimentions => {
     }
 
     handleResize();
-      window.addEventListener('resize', handleResize);
-      return (): void => window.removeEventListener('resize', handleResize);
+    window.addEventListener('resize', handleResize);
+    return (): void => window.removeEventListener('resize', handleResize);
   }, []);
 
   return windowDimensions;
