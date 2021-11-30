@@ -1,9 +1,11 @@
+import Link from 'next/link';
 import type { NextPage } from 'next';
 import { useEffect, useState } from 'react';
 
 import { TileVariant } from '../interfaces';
 import styles from '../styles/Home.module.css';
 import { DocumentHead } from '../components/DocumentHead';
+import { GoogleAnalytics } from '../utils/GoogleAnalytics';
 import { EscherTile } from '../components/tiles/EscherTile';
 import { useWindowDimensions } from '../hooks/useWindowDimensions';
 
@@ -22,6 +24,8 @@ const Escher: NextPage = () => {
   return (
     <div className={styles.container}>
       <DocumentHead title="Escher Tiles" description="escher tiles" />
+
+      <GoogleAnalytics />
 
       <main className={styles.main}>
         <div className={styles.grid}>
@@ -282,6 +286,11 @@ const Escher: NextPage = () => {
             fill1={fill1}
             fill2={fill2}
           />
+        </div>
+        <div className={styles.grid}>
+          <Link href="/about">
+            <a className={styles.navLink}>About</a>
+          </Link>
         </div>
       </main>
     </div>
