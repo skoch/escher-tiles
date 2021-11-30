@@ -1,75 +1,291 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
-import { useWindowDimensions } from '../hooks/useWindowDimensions';
+import type { NextPage } from 'next';
 import { useEffect, useState } from 'react';
 
-const Home: NextPage = () => {
+import { TileVariant } from '../interfaces';
+import styles from '../styles/Home.module.css';
+import { DocumentHead } from '../components/DocumentHead';
+import { EscherTile } from '../components/tiles/EscherTile';
+import { useWindowDimensions } from '../hooks/useWindowDimensions';
 
+const Escher: NextPage = () => {
   const { width } = useWindowDimensions();
   const [tileSize, setTileSize] = useState<number>(100);
+  const [fill1] = useState<string>('#232425');
+  const [fill2] = useState<string>('#b1ad38');
 
   useEffect(() => {
-    setTileSize(width && width <= 599 ? 50 : 100);
+    setTileSize(width && width <= 599 ? 35 : 100);
   }, [width]);
+
+  const size = String(tileSize);
 
   return (
     <div className={styles.container}>
-      <Head>
-        <title>Escher Tiles</title>
-        <meta name="description" content="escher tiles" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <DocumentHead title="Escher Tiles" description="escher tiles" />
 
       <main className={styles.main}>
         <div className={styles.grid}>
-          <Image className={styles.rotate0} src="/tile-b-1.svg" alt="B1" width={tileSize} height={tileSize} />
-          <Image className={styles.rotate90} src="/tile-b-2.svg" alt="B2" width={tileSize} height={tileSize} />
-          <Image className={styles.rotate0} src="/tile-b-2.svg" alt="B2" width={tileSize} height={tileSize} />
-          <Image className={styles.rotate90} src="/tile-b-1.svg" alt="B1" width={tileSize} height={tileSize} />
-          <Image className={styles.rotate0} src="/tile-b-1.svg" alt="B1" width={tileSize} height={tileSize} />
-          <Image className={styles.rotate90} src="/tile-b-2.svg" alt="B2" width={tileSize} height={tileSize} />
+          <EscherTile
+            variant={TileVariant.B1}
+            rotation="0"
+            size={size}
+            fill1={fill1}
+            fill2={fill2}
+          />
+          <EscherTile
+            variant={TileVariant.B2}
+            rotation="90"
+            size={size}
+            fill1={fill1}
+            fill2={fill2}
+          />
+          <EscherTile
+            variant={TileVariant.B2}
+            rotation="0"
+            size={size}
+            fill1={fill1}
+            fill2={fill2}
+          />
+          <EscherTile
+            variant={TileVariant.B1}
+            rotation="90"
+            size={size}
+            fill1={fill1}
+            fill2={fill2}
+          />
+          <EscherTile
+            variant={TileVariant.B1}
+            rotation="0"
+            size={size}
+            fill1={fill1}
+            fill2={fill2}
+          />
+          <EscherTile
+            variant={TileVariant.B2}
+            rotation="90"
+            size={size}
+            fill1={fill1}
+            fill2={fill2}
+          />
 
-          <Image className={styles.rotate270} src="/tile-b-2.svg" alt="B1" width={tileSize} height={tileSize} />
-          <Image className={styles.rotate180} src="/tile-a-1.svg" alt="A1" width={tileSize} height={tileSize} />
-          <Image className={styles.rotate270} src="/tile-a-1.svg" alt="A1" width={tileSize} height={tileSize} />
-          <Image className={styles.rotate180} src="/tile-a-2.svg" alt="A2" width={tileSize} height={tileSize} />
-          <Image className={styles.rotate270} src="/tile-a-2.svg" alt="A2" width={tileSize} height={tileSize} />
-          <Image className={styles.rotate180} src="/tile-b-1.svg" alt="B1" width={tileSize} height={tileSize} />
+          <EscherTile
+            variant={TileVariant.B2}
+            rotation="270"
+            size={size}
+            fill1={fill1}
+            fill2={fill2}
+          />
+          <EscherTile
+            variant={TileVariant.A1}
+            rotation="180"
+            size={size}
+            fill1={fill1}
+            fill2={fill2}
+          />
+          <EscherTile
+            variant={TileVariant.A1}
+            rotation="270"
+            size={size}
+            fill1={fill1}
+            fill2={fill2}
+          />
+          <EscherTile
+            variant={TileVariant.A2}
+            rotation="180"
+            size={size}
+            fill1={fill1}
+            fill2={fill2}
+          />
+          <EscherTile
+            variant={TileVariant.A2}
+            rotation="270"
+            size={size}
+            fill1={fill1}
+            fill2={fill2}
+          />
+          <EscherTile
+            variant={TileVariant.B1}
+            rotation="180"
+            size={size}
+            fill1={fill1}
+            fill2={fill2}
+          />
 
-          <Image className={styles.rotate0} src="/tile-b-2.svg" alt="B1" width={tileSize} height={tileSize} />
-          <Image className={styles.rotate90} src="/tile-a-1.svg" alt="A1" width={tileSize} height={tileSize} />
-          <Image className={styles.rotate0} src="/tile-a-1.svg" alt="A1" width={tileSize} height={tileSize} />
-          <Image className={styles.rotate90} src="/tile-a-2.svg" alt="A2" width={tileSize} height={tileSize} />
-          <Image className={styles.rotate0} src="/tile-a-2.svg" alt="A2" width={tileSize} height={tileSize} />
-          <Image className={styles.rotate90} src="/tile-b-1.svg" alt="B1" width={tileSize} height={tileSize} />
+          <EscherTile
+            variant={TileVariant.B2}
+            rotation="0"
+            size={size}
+            fill1={fill1}
+            fill2={fill2}
+          />
+          <EscherTile
+            variant={TileVariant.A1}
+            rotation="90"
+            size={size}
+            fill1={fill1}
+            fill2={fill2}
+          />
+          <EscherTile
+            variant={TileVariant.A1}
+            rotation="0"
+            size={size}
+            fill1={fill1}
+            fill2={fill2}
+          />
+          <EscherTile
+            variant={TileVariant.A2}
+            rotation="90"
+            size={size}
+            fill1={fill1}
+            fill2={fill2}
+          />
+          <EscherTile
+            variant={TileVariant.A2}
+            rotation="0"
+            size={size}
+            fill1={fill1}
+            fill2={fill2}
+          />
+          <EscherTile
+            variant={TileVariant.B1}
+            rotation="90"
+            size={size}
+            fill1={fill1}
+            fill2={fill2}
+          />
 
-          <Image className={styles.rotate270} src="/tile-b-1.svg" alt="B1" width={tileSize} height={tileSize} />
-          <Image className={styles.rotate180} src="/tile-a-2.svg" alt="A2" width={tileSize} height={tileSize} />
-          <Image className={styles.rotate270} src="/tile-a-2.svg" alt="A2" width={tileSize} height={tileSize} />
-          <Image className={styles.rotate180} src="/tile-a-1.svg" alt="A1" width={tileSize} height={tileSize} />
-          <Image className={styles.rotate270} src="/tile-a-1.svg" alt="A1" width={tileSize} height={tileSize} />
-          <Image className={styles.rotate180} src="/tile-b-2.svg" alt="B1" width={tileSize} height={tileSize} />
+          <EscherTile
+            variant={TileVariant.B1}
+            rotation="270"
+            size={size}
+            fill1={fill1}
+            fill2={fill2}
+          />
+          <EscherTile
+            variant={TileVariant.A2}
+            rotation="180"
+            size={size}
+            fill1={fill1}
+            fill2={fill2}
+          />
+          <EscherTile
+            variant={TileVariant.A2}
+            rotation="270"
+            size={size}
+            fill1={fill1}
+            fill2={fill2}
+          />
+          <EscherTile
+            variant={TileVariant.A1}
+            rotation="180"
+            size={size}
+            fill1={fill1}
+            fill2={fill2}
+          />
+          <EscherTile
+            variant={TileVariant.A1}
+            rotation="270"
+            size={size}
+            fill1={fill1}
+            fill2={fill2}
+          />
+          <EscherTile
+            variant={TileVariant.B2}
+            rotation="180"
+            size={size}
+            fill1={fill1}
+            fill2={fill2}
+          />
 
-          <Image className={styles.rotate0} src="/tile-b-1.svg" alt="B1" width={tileSize} height={tileSize} />
-          <Image className={styles.rotate90} src="/tile-a-2.svg" alt="A2" width={tileSize} height={tileSize} />
-          <Image className={styles.rotate0} src="/tile-a-2.svg" alt="A2" width={tileSize} height={tileSize} />
-          <Image className={styles.rotate90} src="/tile-a-1.svg" alt="A1" width={tileSize} height={tileSize} />
-          <Image className={styles.rotate0} src="/tile-a-1.svg" alt="A1" width={tileSize} height={tileSize} />
-          <Image className={styles.rotate90} src="/tile-b-2.svg" alt="B1" width={tileSize} height={tileSize} />
+          <EscherTile
+            variant={TileVariant.B1}
+            rotation="0"
+            size={size}
+            fill1={fill1}
+            fill2={fill2}
+          />
+          <EscherTile
+            variant={TileVariant.A2}
+            rotation="90"
+            size={size}
+            fill1={fill1}
+            fill2={fill2}
+          />
+          <EscherTile
+            variant={TileVariant.A2}
+            rotation="0"
+            size={size}
+            fill1={fill1}
+            fill2={fill2}
+          />
+          <EscherTile
+            variant={TileVariant.A1}
+            rotation="90"
+            size={size}
+            fill1={fill1}
+            fill2={fill2}
+          />
+          <EscherTile
+            variant={TileVariant.A1}
+            rotation="0"
+            size={size}
+            fill1={fill1}
+            fill2={fill2}
+          />
+          <EscherTile
+            variant={TileVariant.B2}
+            rotation="90"
+            size={size}
+            fill1={fill1}
+            fill2={fill2}
+          />
 
-          <Image className={styles.rotate270} src="/tile-b-2.svg" alt="B2" width={tileSize} height={tileSize} />
-          <Image className={styles.rotate180} src="/tile-b-1.svg" alt="B1" width={tileSize} height={tileSize} />
-          <Image className={styles.rotate270} src="/tile-b-1.svg" alt="B1" width={tileSize} height={tileSize} />
-          <Image className={styles.rotate180} src="/tile-b-2.svg" alt="B2" width={tileSize} height={tileSize} />
-          <Image className={styles.rotate270} src="/tile-b-2.svg" alt="B2" width={tileSize} height={tileSize} />
-          <Image className={styles.rotate180} src="/tile-b-1.svg" alt="B1" width={tileSize} height={tileSize} />
+          <EscherTile
+            variant={TileVariant.B2}
+            rotation="270"
+            size={size}
+            fill1={fill1}
+            fill2={fill2}
+          />
+          <EscherTile
+            variant={TileVariant.B1}
+            rotation="180"
+            size={size}
+            fill1={fill1}
+            fill2={fill2}
+          />
+          <EscherTile
+            variant={TileVariant.B1}
+            rotation="270"
+            size={size}
+            fill1={fill1}
+            fill2={fill2}
+          />
+          <EscherTile
+            variant={TileVariant.B2}
+            rotation="180"
+            size={size}
+            fill1={fill1}
+            fill2={fill2}
+          />
+          <EscherTile
+            variant={TileVariant.B2}
+            rotation="270"
+            size={size}
+            fill1={fill1}
+            fill2={fill2}
+          />
+          <EscherTile
+            variant={TileVariant.B1}
+            rotation="180"
+            size={size}
+            fill1={fill1}
+            fill2={fill2}
+          />
         </div>
       </main>
-
     </div>
   );
 }
 
-export default Home
+export default Escher;
