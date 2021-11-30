@@ -1,4 +1,3 @@
-
 import { SVGTile } from '../SVGTile';
 import { Tile } from '../../interfaces';
 
