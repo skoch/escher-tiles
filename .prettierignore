@@ -1,0 +1,6 @@
+# Ignore artifacts:
+out
+coverage
+
+.husky
+.next
