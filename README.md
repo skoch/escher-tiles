@@ -1,3 +1,17 @@
+# Escher Tiles
+
+I'd seen an Escher book and taken a snapshot of a page (see below) that had a tile project thinking that one day I would translate that to code.
+
+This is that project.
+
+Done over Thanksgiving break 2021, I decided to bootstrap with Next JS because, well, why not. I've not spun up one recently and felt the need to get exposure, once again.
+
+![Escher Original](./public/escher-original.jpg)
+
+Fun!
+
+---
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
@@ -6,8 +20,6 @@ First, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
