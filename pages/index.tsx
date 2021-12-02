@@ -1,19 +1,25 @@
+import type {
+  NextPage,
+  GetServerSideProps,
+  GetServerSidePropsContext,
+  InferGetServerSidePropsType,
+} from 'next';
 import Link from 'next/link';
-import type { NextPage } from 'next';
 import { useEffect, useState } from 'react';
 
-import { TileVariant } from '../interfaces';
 import styles from '../styles/Home.module.css';
+import { Colors, TileVariant } from '../interfaces';
 import { DocumentHead } from '../components/DocumentHead';
 import { GoogleAnalytics } from '../utils/GoogleAnalytics';
 import { EscherTile } from '../components/tiles/EscherTile';
 import { useWindowDimensions } from '../hooks/useWindowDimensions';
 
-const Escher: NextPage = () => {
+const Escher: NextPage<Colors> = ({
+  fill1,
+  fill2,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   const { width } = useWindowDimensions();
   const [tileSize, setTileSize] = useState<number>(100);
-  const [fill1] = useState<string>('#232425');
-  const [fill2] = useState<string>('#b1ad38');
 
   useEffect(() => {
     setTileSize(width && width <= 599 ? 35 : 100);
@@ -289,12 +295,39 @@ const Escher: NextPage = () => {
         </div>
         <div className={styles.grid}>
           <Link href="/about">
-            <a className={styles.navLink}>About</a>
+            <a className={styles.navLink} style={{ color: fill1 }}>
+              About
+            </a>
           </Link>
         </div>
       </main>
     </div>
   );
+};
+
+export const getServerSideProps: GetServerSideProps<Colors> = async (
+  context: GetServerSidePropsContext,
+) => {
+  // query params?
+  const { c1, c2 } = context.query;
+  let colors: Colors = {
+    fill1: '000',
+    fill2: 'fff',
+  };
+
+  // if so, set them as the colors
+  // otherwise, fetch from api
+  if (c1 && c2) {
+    colors.fill1 = `#${c1}`;
+    colors.fill2 = `#${c2}`;
+  } else {
+    const res = await fetch(`${process.env.VERCEL_URL}/api/colors`);
+    colors = await res.json();
+  }
+
+  return {
+    props: colors,
+  };
 };
 
 export default Escher;

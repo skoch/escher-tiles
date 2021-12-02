@@ -15,3 +15,13 @@ export enum TileVariant {
 export interface EscherTileProps extends Tile {
   variant: TileVariant;
 }
+
+export type Colors = {
+  fill1: string;
+  fill2: string;
+};
+
+export type PageColors = {
+  phil1: string;
+  phil2: string;
+};
