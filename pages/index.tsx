@@ -321,7 +321,7 @@ export const getServerSideProps: GetServerSideProps<Colors> = async (
     colors.fill1 = `#${c1}`;
     colors.fill2 = `#${c2}`;
   } else {
-    const res = await fetch(`${process.env.VERCEL_URL}/api/colors`);
+    const res = await fetch(`${process.env.BASE_URL}/api/colors`);
     colors = await res.json();
   }
 
