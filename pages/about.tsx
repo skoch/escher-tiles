@@ -45,6 +45,25 @@ const About: NextPage = () => {
             and see how Vercel&apos;s deployment process has changed since
             it&apos;s been a while since I&apos;ve used it!
           </p>
+          <h2>API</h2>
+          <p>
+            I added the ability to have random colors (default) or to manually
+            change the color scheme. Reload the page to see a new random set or
+            you can append query parameters like so:
+            <br />
+            <a href="https://escher-tiles.vercel.app/?c1=232425&c2=b1ad38">
+              https://escher-tiles.vercel.app/?c1=232425&c2=b1ad38
+            </a>
+            <br />
+            where `c1` and `c2` are both any valid hex value (minus the hash
+            mark)
+          </p>
+          <p>
+            The random colors are from{' '}
+            <a href="https://randoma11y.com/">randoma11y.com</a> when they had
+            an API. At one point I saved the 100 most popular!
+          </p>
+          <p className={styles.small}>December 1, 2021</p>
           <h2>Process</h2>
           <p>
             I&apos;d seen a book on Escher a while ago and in particular, a
@@ -135,7 +154,7 @@ const About: NextPage = () => {
             fill1={fill1}
             fill2={fill2}
           />
-          <p>November 30, 2021</p>
+          <p className={styles.small}>November 30, 2021</p>
         </div>
         <footer className={styles.footer}>skoch&copy;2021</footer>
       </main>
