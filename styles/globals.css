@@ -24,3 +24,11 @@ p {
   font-size: 1.25rem;
   line-height: 1.5;
 }
+
+nav {
+  margin: 1.25rem;
+}
+
+h1 {
+  margin-bottom: 0;
+}
