@@ -9,7 +9,7 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 
 import styles from '../styles/Home.module.css';
-import { Colors, TileVariant } from '../interfaces';
+import { Colors, IParams, TileVariant } from '../interfaces';
 import { DocumentHead } from '../components/DocumentHead';
 import { GoogleAnalytics } from '../utils/GoogleAnalytics';
 import { EscherTile } from '../components/tiles/EscherTile';
@@ -27,11 +27,11 @@ const Escher: NextPage<Colors> = ({
     setTileSize(width && width <= 599 ? 35 : 100);
   }, [width]);
 
-  useEffect(() => {
-    if (router.asPath === '/') {
-      router.push(`/?c1=${fill1}&c2=${fill2}`, undefined, { shallow: true });
-    }
-  }, [fill1, fill2, router]);
+  const refreshColors = async () => {
+    const res = await fetch('/api/colors');
+    const colors = await res.json();
+    router.push(`/${colors.fill1}/${colors.fill2}`);
+  };
 
   const size = String(tileSize);
 
@@ -43,11 +43,11 @@ const Escher: NextPage<Colors> = ({
 
       <main className={styles.main}>
         <nav>
-          <Link href="/">
+          <Link href={router.asPath}>
             <a
               className={styles.navLink}
               style={{ color: fill1 }}
-              onClick={() => router.replace(router.asPath)}
+              onClick={refreshColors}
             >
               Random Colors
             </a>
@@ -331,28 +331,11 @@ const Escher: NextPage<Colors> = ({
 export const getServerSideProps: GetServerSideProps<Colors> = async (
   context: GetServerSidePropsContext,
 ) => {
-  // query params?
-  const { c1, c2 } = context.query;
-  let colors: Colors = {
-    fill1: '#000',
-    fill2: '#fff',
+  const { path } = context.params as IParams;
+  const colors: Colors = {
+    fill1: `#${path[0]}`,
+    fill2: `#${path[1]}`,
   };
-
-  // if so, set them as the colors
-  // otherwise, fetch from api
-  if (c1 && c2) {
-    colors.fill1 = `${c1}`;
-    colors.fill2 = `${c2}`;
-  } else {
-    const res = await fetch(`${process.env.BASE_URL}/api/colors`);
-    colors = await res.json();
-    // return {
-    //   redirect: {
-    //     destination: `/?c1=${colors.fill1}&c2=${colors.fill2}`,
-    //     permanent: false,
-    //   },
-    // };
-  }
 
   return {
     props: colors,

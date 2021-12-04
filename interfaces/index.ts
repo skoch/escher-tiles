@@ -1,3 +1,5 @@
+import { ParsedUrlQuery } from 'querystring';
+
 export interface Tile {
   size: string;
   fill1: string;
@@ -25,7 +27,6 @@ export type ColorsApiPage = {
   baseUrl: string;
 };
 
-export type PageColors = {
-  phil1: string;
-  phil2: string;
-};
+export interface IParams extends ParsedUrlQuery {
+  path: string[];
+}
