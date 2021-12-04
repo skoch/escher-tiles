@@ -23,11 +23,15 @@ const About: NextPage = () => {
       <GoogleAnalytics />
 
       <main className={styles.main}>
-        <Link href="/">
-          <a className={styles.navLink}>Home</a>
-        </Link>
+        <nav>
+          <Link href="/">
+            <a className={styles.navLink}>Tiles</a>
+          </Link>
+          <Link href="/colors-api">
+            <a className={styles.navLink}>Colors API</a>
+          </Link>
+        </nav>
         <div className={styles.content}>
-          <h1>About</h1>
           <EscherTile
             variant={TileVariant.A1}
             rotation="0"
@@ -35,43 +39,31 @@ const About: NextPage = () => {
             fill1={fill1}
             fill2={fill2}
           />
+          <h1>About</h1>
+          <p className={styles.small}>November 30, 2021</p>
           <h2>Tech</h2>
           <p>
             This is a <a href="https://nextjs.org/">Next JS</a> app, deployed on{' '}
             <a href="https://vercel.com/">Vercel</a>.
           </p>
+          <p>Overkill? Probably.</p>
           <p>
-            Overkill? Probably. However I wanted to spin up a new Next JS app
-            and see how Vercel&apos;s deployment process has changed since
-            it&apos;s been a while since I&apos;ve used it!
+            However, I wanted to spin up a new Next JS app and see how
+            Vercel&apos;s deployment process has changed since it&apos;s been a
+            while since I&apos;ve used it.{' '}
+            <i>
+              Overall, good stuff. UI has changed drastically and the flow is
+              not dissimilar from <a href="https://netlify.com/">Netlify</a>.
+            </i>
           </p>
-          <h2>API</h2>
-          <p>
-            I added the ability to have random colors (default) or to manually
-            change the color scheme. Reload the page to see a new random set or
-            you can append query parameters like so:
-            <br />
-            <a href="https://escher-tiles.vercel.app/?c1=232425&c2=b1ad38">
-              https://escher-tiles.vercel.app/?c1=232425&c2=b1ad38
-            </a>
-            <br />
-            where `c1` and `c2` are both any valid hex value (minus the hash
-            mark)
-          </p>
-          <p>
-            The random colors are from{' '}
-            <a href="https://randoma11y.com/">randoma11y.com</a> when they had
-            an API. At one point I saved the 100 most popular!
-          </p>
-          <p className={styles.small}>December 1, 2021</p>
           <h2>Process</h2>
           <p>
-            I&apos;d seen a book on Escher a while ago and in particular, a
+            I&apos;d seen a book on Escher a while ago and in particular a
             project that focused on (surprise!) tiles. I was fascinated by the
             pattern, of course, and thought to myself,
             <i>&#8220;this would be fun to translate to code.&#8221;</i> I took
-            a picture of the page with my phone hoping that I&apos;d eventually
-            find some time.
+            a picture of the page hoping that I&apos;d eventually find some
+            time.
           </p>
           <Image
             src="/escher-original.jpg"
@@ -96,11 +88,12 @@ const About: NextPage = () => {
           <p>
             Initially, I was working with a 500x500 square. However, given that
             there were lines that were split along the edges, I realized that
-            I&apos;d need to change my square to accommodate this. I then
+            I&apos;d need to change my dimensions to accommodate this. I then
             settled on a 512x512 square that would allow me to have lines 64px
             wide as well as the split lines around the border that would be
             32px.
           </p>
+          <p>Good numbers to work with.</p>
           <Image
             src="/dimensions.svg"
             alt="tile dimensions"
@@ -144,8 +137,17 @@ const About: NextPage = () => {
             &mdash; in reverse.
           </p>
           <p>
-            And finally, create components out of all these to potentially mess
-            with the colors. Nothing done yet, but the groundwork is there.
+            And finally, create components out of all these to{' '}
+            <s>potentially</s> mess with the colors.{' '}
+            <s>Nothing done yet, but</s> the groundwork is there.
+          </p>
+          <p>
+            <strong>Update:</strong> The{' '}
+            <Link href="/colors-api">
+              <a className={styles.navLink}>colors API</a>
+            </Link>
+            will now allow you to defined the colors as well as have random
+            colors.
           </p>
           <EscherTile
             variant={TileVariant.B2}
@@ -154,7 +156,6 @@ const About: NextPage = () => {
             fill1={fill1}
             fill2={fill2}
           />
-          <p className={styles.small}>November 30, 2021</p>
         </div>
         <footer className={styles.footer}>skoch&copy;2021</footer>
       </main>

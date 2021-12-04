@@ -10,11 +10,11 @@
     </g>
     <path fill="#232425" d="M0 352h512v64H0z"/>
     <path fill="#C7C017" d="M96 0h64v288H96z"/>
-    <path fill="#232425" d="M0 0h352v32H0z"/>
+    <path fill="#232425" d="M0 0h416v32H0z"/>
     <path fill="#C7C017" d="M352 224h64v288h-64zM0 96h512v64H0z"/>
     <path fill="#232425" d="M0 0h32v416H0z"/>
     <path fill="#C7C017" d="M96 224h320v64H96z"/>
-    <path fill="#232425" d="M160 480h352v32H160z"/>
+    <path fill="#232425" d="M96 480h416v32H96z"/>
     <path fill="#C7C017" d="M480 96h32v416h-32z"/>
   </g>
 </svg>
