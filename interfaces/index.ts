@@ -21,6 +21,10 @@ export type Colors = {
   fill2: string;
 };
 
+export type ColorsApiPage = {
+  baseUrl: string;
+};
+
 export type PageColors = {
   phil1: string;
   phil2: string;
