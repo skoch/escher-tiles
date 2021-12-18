@@ -7,6 +7,8 @@ import Link from 'next/link';
 
 import { ColorsApiPage } from '../interfaces';
 import styles from '../styles/Home.module.css';
+
+import { Footer } from '../components/Footer';
 import { DocumentHead } from '../components/DocumentHead';
 import { GoogleAnalytics } from '../utils/GoogleAnalytics';
 
@@ -23,7 +25,7 @@ const ColorsApi: NextPage<ColorsApiPage> = ({
 
     <main className={styles.main}>
       <nav>
-        <Link href="/232425/b1ad38">
+        <Link href="/f35567/20161d">
           <a className={styles.navLink}>Tiles</a>
         </Link>
         <Link href="/about">
@@ -35,17 +37,16 @@ const ColorsApi: NextPage<ColorsApiPage> = ({
         <p className={styles.small}>December 1, 2021</p>
         <h2>Random Colors</h2>
         <p>
-          I added the ability to have random colors (default) or to manually
-          change the color scheme. Reload the page to see a new random set or
-          you can append query parameters like so:
+          Any valid hex value can be used as part of the path: one for each
+          color. Here we see the defaults:
           <br />
-          <Link href={`${baseUrl}/232425/b1ad38`}>
-            <a href={`${baseUrl}/232425/b1ad38`}>
-              {`${baseUrl}/232425/b1ad38`}
+          <Link href={`${baseUrl}/222324/b1ad38`}>
+            <a href={`${baseUrl}/222324/b1ad38`}>
+              {`${baseUrl}/222324/b1ad38`}
             </a>
           </Link>
           <br />
-          ... where each param in the path is a hex value, minus the hash.
+          No hash!
         </p>
         <p>
           The random colors are from{' '}
@@ -54,7 +55,7 @@ const ColorsApi: NextPage<ColorsApiPage> = ({
           color combinations.
         </p>
       </div>
-      <footer className={styles.footer}>skoch&copy;2021</footer>
+      <Footer />
     </main>
   </div>
 );

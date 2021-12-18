@@ -3,6 +3,8 @@ import Image from 'next/image';
 import { NextPage } from 'next';
 
 import styles from '../styles/Home.module.css';
+
+import { Footer } from '../components/Footer';
 import { DocumentHead } from '../components/DocumentHead';
 import { GoogleAnalytics } from '../utils/GoogleAnalytics';
 
@@ -17,7 +19,7 @@ const About: NextPage = () => (
 
     <main className={styles.main}>
       <nav>
-        <Link href="/232425/b1ad38">
+        <Link href="/3982b8/06102d">
           <a className={styles.navLink}>Tiles</a>
         </Link>
         <Link href="/colors-api">
@@ -27,21 +29,6 @@ const About: NextPage = () => (
       <div className={styles.content}>
         <h1>About</h1>
         <p className={styles.small}>November 30, 2021</p>
-        <h2>Tech</h2>
-        <p>
-          This is a <a href="https://nextjs.org/">Next JS</a> app, deployed on{' '}
-          <a href="https://vercel.com/">Vercel</a>.
-        </p>
-        <p>Overkill? Probably.</p>
-        <p>
-          However, I wanted to spin up a new Next JS app and see how
-          Vercel&apos;s deployment process has changed since it&apos;s been a
-          while since I&apos;ve used it.{' '}
-          <i>
-            Overall, good stuff. UI has changed drastically and the flow is not
-            dissimilar from <a href="https://netlify.com/">Netlify</a>.
-          </i>
-        </p>
         <h2>Process</h2>
         <p>
           I&apos;d seen a book on Escher a while ago and in particular a project
@@ -119,9 +106,25 @@ const About: NextPage = () => (
           will now allow you to defined the colors as well as have random
           colors.
         </p>
+        <h2>Tech</h2>
+        <p>
+          This is a <a href="https://nextjs.org/">Next JS</a> app, deployed on{' '}
+          <a href="https://vercel.com/">Vercel</a>.
+        </p>
+        <p>Overkill? Probably.</p>
+        <p>
+          However, I wanted to spin up a new Next JS app and see how
+          Vercel&apos;s deployment process has changed since it&apos;s been a
+          while since I&apos;ve used it.{' '}
+          <i>
+            Overall, good stuff. UI has changed drastically and the flow is not
+            dissimilar from <a href="https://netlify.com/">Netlify</a>.
+          </i>
+        </p>
       </div>
-      <footer className={styles.footer}>skoch&copy;2021</footer>
+      <Footer />
     </main>
   </div>
 );
+
 export default About;
