@@ -110,7 +110,7 @@ const colors = [
   { fill1: 'fd31c7', fill2: '042064' },
   { fill1: 'd1527d', fill2: '000224' },
   // original colors I'd implemented
-  { fill1: '232425', fill2: 'b1ad38' },
+  { fill1: '222324', fill2: 'b1ad38' },
 ];
 
 export default function handler(

@@ -14,6 +14,7 @@ import { DocumentHead } from '../components/DocumentHead';
 import { GoogleAnalytics } from '../utils/GoogleAnalytics';
 import { EscherTile } from '../components/tiles/EscherTile';
 import { useWindowDimensions } from '../hooks/useWindowDimensions';
+import { Footer } from '../components/Footer';
 
 const Escher: NextPage<Colors> = ({
   fill1,
@@ -322,7 +323,7 @@ const Escher: NextPage<Colors> = ({
             fill2={fill2}
           />
         </div>
-        <footer className={styles.footer}>skoch&copy;2021</footer>
+        <Footer color={fill1} />
       </main>
     </div>
   );
